@@ -24,10 +24,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Setting elements of the layout
         img = (ImageView)findViewById(R.id.image);
         GoToList = (Button)findViewById(R.id.GoToList);
         Getimage = (Button)findViewById(R.id.Getimage);
 
+        // Using the GetImageOnClickListener which override the usual onClick listener
         Getimage.setOnClickListener(new GetImageOnClickListener(){
             @Override
             public void onClick(View v) {
@@ -36,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Ceating an Intent to redirect to another activity while clicking
         GoToList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

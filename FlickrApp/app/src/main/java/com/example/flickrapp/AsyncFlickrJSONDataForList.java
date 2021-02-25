@@ -51,6 +51,7 @@ public class AsyncFlickrJSONDataForList extends AsyncTask<String, Void, JSONObje
         return myJSONObject;
     }
 
+    // Get the data of every JSON objects within the array items and add them to the adapter's vector
     @Override
     protected void onPostExecute(JSONObject myJSONObject) {
         try {
@@ -60,8 +61,6 @@ public class AsyncFlickrJSONDataForList extends AsyncTask<String, Void, JSONObje
                 Log.i("TE", urlImage);
                 myAdapter.dd(urlImage);
                 Log.i("JFL", "Adding to adapter url : " + urlImage);
-//                AsyncBitmapDownloaderForList bmdownloader = new AsyncBitmapDownloaderForList(urlImage);
-//                bmdownloader.execute();
             }
             myAdapter.notifyDataSetChanged();
         } catch (JSONException e) {

@@ -18,8 +18,10 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        // set the listView
         listView = (ListView)findViewById(R.id.list);
 
+        // Create an adpater which will be used in asynchronous tasks
         MyAdapter myAdapter = new MyAdapter();
         listView.setAdapter(myAdapter);
 
@@ -30,6 +32,7 @@ public class ListActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        // Create the request queue to implement the lazy loading
         RequestQueue queue = MySingleton.getInstance(this.getApplicationContext()).getRequestQueue();
 
 

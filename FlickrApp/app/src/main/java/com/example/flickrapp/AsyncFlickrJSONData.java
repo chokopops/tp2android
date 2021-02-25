@@ -23,7 +23,7 @@ public class AsyncFlickrJSONData extends AsyncTask<String, Void, JSONObject> {
         this.httpUrl = httpUrl;
     }
 
-    // Connect to the url and
+    // Connect to the url and create a JSON object to be used
     @Override
     protected JSONObject doInBackground(String... strings) {
         URL url =null;
@@ -50,6 +50,7 @@ public class AsyncFlickrJSONData extends AsyncTask<String, Void, JSONObject> {
         return myJSONObject;
     }
 
+    // Get the data to a certain place of the JSON object and create a bitmap with it
     @Override
     protected void onPostExecute(JSONObject myJSONObject) {
         try {
@@ -62,6 +63,7 @@ public class AsyncFlickrJSONData extends AsyncTask<String, Void, JSONObject> {
         }
     }
 
+    // Create a bytearrayoutputstream and return it with data contained in the given url
     private String readStream(InputStream is) {
         try {
             ByteArrayOutputStream bo = new ByteArrayOutputStream();

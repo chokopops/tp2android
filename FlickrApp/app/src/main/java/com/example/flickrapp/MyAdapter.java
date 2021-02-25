@@ -48,25 +48,25 @@ public class MyAdapter extends BaseAdapter {
 //            ((TextView)convertView.findViewById(R.id.textView2)).setText(vector.get(position));
 //        }
 
-        // chargement des layouts en avance pour un scroll éventuel
+        // loading layouts in advance to prevent an eventual scroll
         if (convertView == null) {
             LayoutInflater inflater = LayoutInflater.from(parent.getContext());
             convertView = inflater.inflate(R.layout.bitmaplayout, parent, false);
         }
 
-        // Création de l'imageView afin de pouvoir l'utiliser dans la lambda expression. Si instanciée dans la lambda exp, ça ne fonctionne pas.
+        // Creation of the imageView to use it within the lambda expression.
+        // If this imageView is instanciate in the lambda expression, it doesn't work
         ImageView img = (ImageView)convertView.findViewById(R.id.imageView);
 
-        // Création d'un bitmap pour permettre de charger l'image
+        // Creation of the bitmap used to load images
         Response.Listener<Bitmap> rep_listener = response -> {
             img.setImageBitmap(response);
         };
 
-        // On crée une imageRequest contenant la position de l'url de l'image dans le vector et une création de bitmap avec les response listener
+        // Cration of an ImageRequest containing image url position in the vector and use of the bitmap created with the response listener
         ImageRequest request = new ImageRequest(vector.get(position), rep_listener,  0, 0, ImageView.ScaleType.CENTER_CROP, null, null);
 
-
-        // On ajoute au singleton (qui est un genre de liste chainée) les information de l'image que l'oin cherche à charger.
+        // Adding to the singleton image data we want to load
         MySingleton.getInstance(parent.getContext()).addToRequestQueue(request);
 
         return convertView;
