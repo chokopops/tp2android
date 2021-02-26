@@ -31,6 +31,24 @@
             android:layout_height="wrap_content"
             android:text="Go to list" />
 
+        <Button
+            android:id="@+id/coordinate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get coordinate" />
+
+        <TextView
+            android:id="@+id/latitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Latitude" />
+
+        <TextView
+            android:id="@+id/longitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Longitude" />
+
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
